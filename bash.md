@@ -36,7 +36,7 @@ sudo -u <username> bash -c '<command>'
 -r reattach (-d if attached)
 ctrl+a, d to detach
 
-## Did you really forgot this ?
+## To copy until learn
 
 ```bash
 ## list of process by listened port
@@ -44,4 +44,7 @@ netstat -tupln
 
 ## filter process
 ps aux | grep "<something>"
+
+## non recursive subfolder disk usage
+du -sh *
 ```
