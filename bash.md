@@ -9,6 +9,11 @@ delete files with name pattern :
 find . -type f -name "*.txt" -delete
 ```
 
+Search file content (-F for non regex match on pattern, A and B for lines around match)
+```bash
+grep -rF -B 2 -A 2 "pattern" --include="*.pom" --include="*.sbt"
+```
+
 ## tar
 
 tar
