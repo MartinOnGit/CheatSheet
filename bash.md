@@ -52,4 +52,7 @@ ps aux | grep "<something>"
 
 ## non recursive subfolder disk usage
 du -sh *
+
+## distribution info
+cat /etc/*-release
 ```
