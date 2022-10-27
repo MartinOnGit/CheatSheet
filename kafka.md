@@ -29,6 +29,10 @@ Assuming everything is run from kafka root folder of kafka binaries. Using a loc
 ### describe topic
 ```bash
 ./bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic <topic>
+
+#topic offsets(regardless of consumers):
+./bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --time -1 --topic <topic>
+#return topic:partition:offset
 ```
 
 ## create
@@ -38,7 +42,7 @@ Assuming everything is run from kafka root folder of kafka binaries. Using a loc
 
 ## CONSUMERS
 ```bash
-./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic> --from-beginning --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.ByteArrayDeserializer
+./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic <topic> [--from-beginning|--offset <offset_start> --partition <partition>] --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.ByteArrayDeserializer
 ```
 
 ## PRODUCER
