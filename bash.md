@@ -29,6 +29,25 @@ tar -xvf archive.tar -C /untar/in/folder/
 ```
 (same for .tar.gz)
 
+## date
+timestamp to human readable
+```bash
+## -u for utc, otherwise beaware of timezone...
+date -ud @1588409326
+
+## the miliseconds hack
+date -ud @$(((1588409326000 + 500)/1000))
+```
+
+date to timestamp
+```bash
+#timestamp in seconds
+date -ud 'YYYY-MM-DD HH:mm:ss' +%s
+#timestamp in milliseconds (%6n for µs, %N for nano), does not work on non GNU
+date -ud 'YYYY-MM-DD HH:mm:ss.nnnnnnnnn' +%s%3N
+## As european, beware of AM and PM :) (if not specified, date assumes the format is on 24h)
+```
+
 ## imperssonate (as sudoer)
 
 ```bash
