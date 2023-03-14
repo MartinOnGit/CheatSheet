@@ -8,13 +8,18 @@
 
 List objects
 ```bash
-kubectl get <object> -l label.name!=label_value --namespace=<namespace>
+kubectl get <kind> -l label.name!=label_value --namespace=<namespace>
+kubectl get <kind> <name> [-o name | -o running |-o wide | -o yaml]
 ```
-<object> can be any `kind` of Kubernetes object (available for autocomplete).
 
 Get detailed object
 ```bash
-kubectl describe <object> <object name>
+kubectl describe <kind> <name>
+```
+
+List kind
+```bash
+kubectl api-resources
 ```
 
 ## Create/Update/Delte objects
@@ -39,4 +44,24 @@ kubectl get -f resource_confg.yaml
 ```bash
 kubectl top pod <pod>
 kubectl top node ...
+
+# do not "edit" deployments replicas, use
+kubectl scale deployment deploymentName --replicas 3
+```
+
+## Debug resources
+
+```bash
+kubectl logs podName [--previous][--container=containerName]
+kubectl logs --selector label=value
+
+# forward pod port to local port
+kubectl port-forward the-pod localPort:containerPort
+
+#start a pod and connect to a terminal in it
+kubectl run debug-pod --image=ubuntu --rm -it -- bash
+## be sure to apt-get update before installing package :)
+
+# start container in a pod (and  attache to it)
+kubectl debug podName --interactive --tty --image=alpine --target=
 ```
