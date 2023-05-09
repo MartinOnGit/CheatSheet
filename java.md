@@ -10,3 +10,16 @@ Enable jmx (jvm options):
 -Dcom.sun.management.jmxremote.authenticate=false
 -Dcom.sun.management.jmxremote.ssl=false
 ```
+
+
+## Check jar content (with only jdk)
+
+```bash
+## extract jar
+jar xf the_jar-X.Y.Z.jar
+
+#Decompile
+javap -c path/to/TheClass.class | less
+
+#good luck
+```
