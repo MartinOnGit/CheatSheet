@@ -48,6 +48,12 @@ date -ud 'YYYY-MM-DD HH:mm:ss.nnnnnnnnn' +%s%3N
 ## As european, beware of AM and PM :) (if not specified, date assumes the format is on 24h)
 ```
 
+## wget
+
+"download" directory like website from url
+```bash
+wget -r -np -nH --cut-dirs=3 -R index.html http://the.domain.name/the/folder/
+
 ## imperssonate (as sudoer)
 
 ```bash
